@@ -6,21 +6,21 @@ MATLAB code for measuring HRTFs and simulating **dynamic Spatial Release from Ma
 ```text
 Programs/
 ├── HRTF/
-│   ├── hrtf_final_windowed.m % Measure + window HRIRs, estimate HRTFs
-│   ├── hrtf_sofa.m % Convert measured HRTFs to SOFA format
+│   ├── hrtf_final_windowed.m %measure + window HRIRs and estimate HRTFs
+│   ├── hrtf_sofa.m %convert measured HRTFs to SOFA format
 │   ├── setfig.m %figure sizing/styling
 │   └── win_hrtf.sofa %sample SOFA file (windowed HRTFs)
 ├── KEMAR_SRM/
-│   ├── Test_Jelf2011_Mk3.m % SRM vs head orientation (KEMAR)
-│   ├── Test_Jelf2011_Mk3_avg.m % Averaged SRM
+│   ├── Test_Jelf2011_Mk3.m % SRM of different targets at various head orientation (KEMAR)
+│   ├── Test_Jelf2011_Mk3_avg.m % Averaged SRM between world-fixed and headlocked condition
 └── SRM_for_HRTFs/
-    ├── kemar_avil_hrtf_vs_win_hrtf.m % Compare KEMAR, HATS, and individual HRTFs
+    ├── kemar_avil_hrtf_vs_win_hrtf.m %compare KEMAR, HATS, and individual HRTFs
     └── kemar_avil_hrtf_vs_win_hrtf_data.mat %workspace saved from last run
 
 ## Dependencies
 
-- MATLAB (tested with R20xx)
-- AMT toolbox (for `jelfs2011` and related functions)
+- MATLAB (tested with R2024/25)
+- AMT toolbox 1.6.0 (for `jelfs2011` and related functions)
 - SOFA support for MATLAB (for HRTF import/export)
 
 ## Typical workflow
