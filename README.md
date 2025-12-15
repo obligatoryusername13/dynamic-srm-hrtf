@@ -3,6 +3,7 @@
 MATLAB code for measuring HRTFs and simulating **dynamic Spatial Release from Masking (SRM)** under different head‑movement conditions (world‑fixed vs head‑locked) using the Jelfs2011 model.
 
 ## Folder structure
+```text
 Programs/
 ├── HRTF/
 │   ├── hrtf_final_windowed.m % Measure + window HRIRs, estimate HRTFs
