@@ -1,2 +1,41 @@
 # dynamic-srm-hrtf
-MATLAB code and data processing scripts for modelling dynamic spatial release from masking including MATLAB implementations of the jelfs2011 model, SOFA preprocessing, SRM analysis, and figure generation for KEMAR, individual, and HATS HRTFs.
+
+MATLAB code for measuring HRTFs and simulating **dynamic Spatial Release from Masking (SRM)** under different head‑movement conditions (world‑fixed vs head‑locked) using the Jelfs2011 model.
+
+## Folder structure
+Programs/
+├── HRTF/
+│   ├── hrtf_final_windowed.m % Measure + window HRIRs, estimate HRTFs
+│   ├── hrtf_sofa.m % Convert measured HRTFs to SOFA format
+│   ├── setfig.m %figure sizing/styling
+│   └── win_hrtf.sofa %sample SOFA file (windowed HRTFs)
+├── KEMAR_SRM/
+│   ├── Test_Jelf2011_Mk3.m % SRM vs head orientation (KEMAR)
+│   ├── Test_Jelf2011_Mk3_avg.m % Averaged SRM
+└── SRM_for_HRTFs/
+    ├── kemar_avil_hrtf_vs_win_hrtf.m % Compare KEMAR, HATS, and individual HRTFs
+    └── kemar_avil_hrtf_vs_win_hrtf_data.mat %workspace saved from last run
+
+## Dependencies
+
+- MATLAB (tested with R20xx)
+- AMT toolbox (for `jelfs2011` and related functions)
+- SOFA support for MATLAB (for HRTF import/export)
+
+## Typical workflow
+
+1. **Measure HRTFs**
+
+   Run:
+  cd('Programs/HRTF')
+  hrtf_final_windowed % sweep playback, IR estimation, time windowing
+  hrtf_sofa % convert irEstimate to win_hrtf.sofa
+
+2. **KEMAR SRM simulations**
+  cd('../KEMAR_SRM')
+  Test_Jelf2011_Mk3 % per‑target SRM vs head orientation
+  Test_Jelf2011_Mk3_avg % averaged SRM plots
+
+3. **SRM with different HRTFs**
+   cd('../SRM_for_HRTFs')
+  kemar_avil_hrtf_vs_win_hrtf
